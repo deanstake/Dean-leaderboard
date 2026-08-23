@@ -389,7 +389,121 @@ h1 {
     0 0 18px rgba(205,125,60,.9),
     0 0 38px rgba(190,105,45,.55);
 }
+/* ULTRA GLOWING GOLD JOIN BUTTON */
 
+.join-button {
+  display: block;
+  width: calc(100% - 60px);
+  max-width: 1000px;
+  margin: 30px auto 35px;
+  padding: 21px 25px;
+  position: relative;
+  overflow: hidden;
+  text-align: center;
+  text-decoration: none;
+  color: #090704;
+  font-size: 22px;
+  font-weight: 950;
+  letter-spacing: .3px;
+
+  background: linear-gradient(
+    180deg,
+    #ffe58a 0%,
+    #f5c95d 25%,
+    #dca63d 60%,
+    #b87920 100%
+  );
+
+  border: 2px solid #ffe9a3;
+  border-radius: 18px;
+
+  box-shadow:
+    0 0 8px #fff0a8,
+    0 0 18px #ffd45c,
+    0 0 35px rgba(255,200,55,.95),
+    0 0 65px rgba(255,170,25,.75),
+    0 0 100px rgba(255,150,0,.35),
+    inset 0 2px 2px rgba(255,255,255,.9),
+    inset 0 -6px 0 rgba(105,55,5,.25);
+
+  animation: goldPulse 2s ease-in-out infinite;
+  transition: transform .2s ease;
+  isolation: isolate;
+}
+
+.join-button::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: -80%;
+  width: 45%;
+  height: 100%;
+
+  background: linear-gradient(
+    90deg,
+    transparent,
+    rgba(255,255,255,.8),
+    transparent
+  );
+
+  transform: skewX(-20deg);
+  animation: goldShine 3s ease-in-out infinite;
+  z-index: -1;
+}
+
+.join-button:hover {
+  transform: translateY(-3px) scale(1.01);
+
+  box-shadow:
+    0 0 12px #fff4b8,
+    0 0 25px #ffd95c,
+    0 0 50px rgba(255,200,50,1),
+    0 0 90px rgba(255,170,20,.9),
+    0 0 130px rgba(255,150,0,.5);
+}
+
+@keyframes goldPulse {
+  0%,100% {
+    box-shadow:
+      0 0 8px #fff0a8,
+      0 0 18px #ffd45c,
+      0 0 35px rgba(255,200,55,.9),
+      0 0 65px rgba(255,170,25,.65),
+      0 0 100px rgba(255,150,0,.3),
+      inset 0 2px 2px rgba(255,255,255,.9),
+      inset 0 -6px 0 rgba(105,55,5,.25);
+  }
+
+  50% {
+    box-shadow:
+      0 0 12px #fff8cf,
+      0 0 28px #ffe06d,
+      0 0 55px rgba(255,205,65,1),
+      0 0 90px rgba(255,175,25,.9),
+      0 0 140px rgba(255,150,0,.45),
+      inset 0 2px 2px rgba(255,255,255,1),
+      inset 0 -6px 0 rgba(105,55,5,.25);
+  }
+}
+
+@keyframes goldShine {
+  0% {
+    left: -80%;
+  }
+
+  45%,100% {
+    left: 140%;
+  }
+}
+
+@media(max-width:700px) {
+  .join-button {
+    width: calc(100% - 30px);
+    padding: 19px 15px;
+    font-size: 18px;
+    border-radius: 17px;
+  }
+}
 /* =========================
    SOCIAL
 ========================= */
@@ -1116,7 +1230,14 @@ h1 {
 
 
   </section>
-
+<a
+  class="join-button"
+  href="https://stake.com/?c=dean"
+  target="_blank"
+  rel="noopener noreferrer"
+>
+  To join the leaderboard, signup here →
+</a>
 
   <!-- =========================
        SOCIAL
