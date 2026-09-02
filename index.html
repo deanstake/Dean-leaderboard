@@ -868,31 +868,39 @@ h1 {
     font-size: 36px;
   }
 
-  .table-head,
-  .row {
-    grid-template-columns:
-      45px
-      1fr
-      65px
-      75px;
-  }
+.table-head,
+.row {
+  grid-template-columns:
+    45px
+    minmax(0, 1fr)
+    105px
+    95px;
+
+  padding-left: 15px;
+  padding-right: 15px;
+}
 
   .avatar {
     width: 48px;
     height: 48px;
   }
 
-  .name {
-    font-size: 16px;
-  }
+.name {
+  font-size: 16px;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
 
-  .amount {
-    font-size: 15px;
-  }
+.amount {
+  font-size: 15px;
+  white-space: nowrap;
+}
 
-  .prize {
-    font-size: 15px;
-  }
+.prize {
+  font-size: 15px;
+  white-space: nowrap;
+}
 
 }
 
