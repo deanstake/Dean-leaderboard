@@ -282,8 +282,6 @@ h1 {
   align-items: center;
 
   gap: 25px;
-
-  min-width: 0;
 }
 
 .avatar {
@@ -315,15 +313,11 @@ h1 {
   font-weight: 900;
 
   white-space: nowrap;
-  overflow: hidden;
-  text-overflow: ellipsis;
 }
 
 .amount {
   font-size: 27px;
   font-weight: 800;
-
-  white-space: nowrap;
 }
 
 .prize {
@@ -396,9 +390,7 @@ h1 {
     0 0 38px rgba(190,105,45,.55);
 }
 
-/* =========================
-   GOLD JOIN BUTTON
-========================= */
+/* ULTRA GLOWING GOLD JOIN BUTTON */
 
 .join-button {
   display: block;
@@ -406,26 +398,22 @@ h1 {
   max-width: 1000px;
   margin: 30px auto 35px;
   padding: 21px 25px;
-
   position: relative;
   overflow: hidden;
-
   text-align: center;
   text-decoration: none;
-
   color: #090704;
   font-size: 22px;
   font-weight: 950;
   letter-spacing: .3px;
 
-  background:
-    linear-gradient(
-      180deg,
-      #ffe58a 0%,
-      #f5c95d 25%,
-      #dca63d 60%,
-      #b87920 100%
-    );
+  background: linear-gradient(
+    180deg,
+    #ffe58a 0%,
+    #f5c95d 25%,
+    #dca63d 60%,
+    #b87920 100%
+  );
 
   border: 2px solid #ffe9a3;
   border-radius: 18px;
@@ -441,40 +429,31 @@ h1 {
 
   animation: goldPulse 2s ease-in-out infinite;
   transition: transform .2s ease;
-
   isolation: isolate;
 }
 
 .join-button::before {
   content: "";
-
   position: absolute;
   top: 0;
   left: -80%;
-
   width: 45%;
   height: 100%;
 
-  background:
-    linear-gradient(
-      90deg,
-      transparent,
-      rgba(255,255,255,.8),
-      transparent
-    );
+  background: linear-gradient(
+    90deg,
+    transparent,
+    rgba(255,255,255,.8),
+    transparent
+  );
 
   transform: skewX(-20deg);
-
-  animation:
-    goldShine 3s ease-in-out infinite;
-
+  animation: goldShine 3s ease-in-out infinite;
   z-index: -1;
 }
 
 .join-button:hover {
-  transform:
-    translateY(-3px)
-    scale(1.01);
+  transform: translateY(-3px) scale(1.01);
 
   box-shadow:
     0 0 12px #fff4b8,
@@ -484,14 +463,8 @@ h1 {
     0 0 130px rgba(255,150,0,.5);
 }
 
-/* =========================
-   GOLD PULSE
-========================= */
-
 @keyframes goldPulse {
-
   0%,100% {
-
     box-shadow:
       0 0 8px #fff0a8,
       0 0 18px #ffd45c,
@@ -500,11 +473,9 @@ h1 {
       0 0 100px rgba(255,150,0,.3),
       inset 0 2px 2px rgba(255,255,255,.9),
       inset 0 -6px 0 rgba(105,55,5,.25);
-
   }
 
   50% {
-
     box-shadow:
       0 0 12px #fff8cf,
       0 0 28px #ffe06d,
@@ -513,17 +484,10 @@ h1 {
       0 0 140px rgba(255,150,0,.45),
       inset 0 2px 2px rgba(255,255,255,1),
       inset 0 -6px 0 rgba(105,55,5,.25);
-
   }
-
 }
 
-/* =========================
-   GOLD SHINE
-========================= */
-
 @keyframes goldShine {
-
   0% {
     left: -80%;
   }
@@ -531,7 +495,15 @@ h1 {
   45%,100% {
     left: 140%;
   }
+}
 
+@media(max-width:700px) {
+  .join-button {
+    width: calc(100% - 30px);
+    padding: 19px 15px;
+    font-size: 18px;
+    border-radius: 17px;
+  }
 }
 
 /* =========================
@@ -821,18 +793,15 @@ h1 {
     letter-spacing: 2px;
   }
 
-  /* =========================
-     TABLE MOBILE - FIXED
-  ========================= */
+  /* TABLE MOBILE */
 
   .table-head,
   .row {
-
     grid-template-columns:
-      45px
-      minmax(0, 1fr)
-      90px
-      95px;
+      55px
+      1fr
+      75px
+      85px;
 
     padding-left: 15px;
     padding-right: 15px;
@@ -856,8 +825,6 @@ h1 {
 
   .player {
     gap: 9px;
-
-    min-width: 0;
   }
 
   .avatar {
@@ -867,35 +834,14 @@ h1 {
 
   .name {
     font-size: 18px;
-
-    overflow: hidden;
-    text-overflow: ellipsis;
   }
 
   .amount {
-    font-size: 15px;
-
-    white-space: nowrap;
+    font-size: 17px;
   }
 
   .prize {
-    font-size: 15px;
-
-    white-space: nowrap;
-  }
-
-  /* JOIN BUTTON MOBILE */
-
-  .join-button {
-    width:
-      calc(100% - 30px);
-
-    padding:
-      19px 15px;
-
-    font-size: 18px;
-
-    border-radius: 17px;
+    font-size: 17px;
   }
 
   /* SOCIAL MOBILE */
@@ -928,9 +874,7 @@ h1 {
 
 }
 
-/* =========================
-   VERY SMALL PHONES
-========================= */
+/* VERY SMALL PHONES */
 
 @media (max-width: 390px) {
 
@@ -952,12 +896,11 @@ h1 {
 
   .table-head,
   .row {
-
     grid-template-columns:
-      40px
-      minmax(0, 1fr)
-      78px
-      82px;
+      45px
+      1fr
+      65px
+      75px;
   }
 
   .avatar {
@@ -965,33 +908,27 @@ h1 {
     height: 48px;
   }
 
-  .player {
-    gap: 7px;
-  }
-
   .name {
-    font-size: 15px;
+    font-size: 16px;
   }
 
   .amount {
-    font-size: 13px;
+    font-size: 15px;
   }
 
   .prize {
-    font-size: 13px;
+    font-size: 15px;
   }
 
 }
-
-/* =========================
-   END CSS
-========================= */
 
 </style>
 
 </head>
 
+
 <body>
+
 
 <!-- =========================
      HEADER
@@ -1162,7 +1099,7 @@ h1 {
         <div class="avatar"></div>
 
         <div class="name">
-          sam
+          ****OCE
         </div>
 
       </div>
@@ -1191,7 +1128,7 @@ h1 {
         <div class="avatar"></div>
 
         <div class="name">
-          sus
+          *******ks9
         </div>
 
       </div>
@@ -1220,7 +1157,7 @@ h1 {
         <div class="avatar"></div>
 
         <div class="name">
-          kim
+          ****p20
         </div>
 
       </div>
@@ -1249,7 +1186,7 @@ h1 {
         <div class="avatar"></div>
 
         <div class="name">
-          kime
+          ******sic
         </div>
 
       </div>
@@ -1278,7 +1215,7 @@ h1 {
         <div class="avatar"></div>
 
         <div class="name">
-          kite
+          *********eyK
         </div>
 
       </div>
@@ -1296,19 +1233,15 @@ h1 {
 
   </section>
 
-
-  <!-- JOIN BUTTON -->
-
-  <a
-    class="join-button"
-    href="https://stake.mba/?c=dean"
-    target="_blank"
-    rel="noopener noreferrer"
-  >
-    To Join The Leaderboard,
-    Signup Here →
-  </a>
-
+<a
+  class="join-button"
+  href="https://stake.mba/?c=dean"
+  target="_blank"
+  rel="noopener noreferrer"
+>
+  To Join The Leaderboard,
+        Signup Here →
+</a>
 
   <!-- =========================
        SOCIAL
@@ -1459,6 +1392,7 @@ correctly regardless of the visitor's country.
 =================================================
 */
 
+
 const endTime =
   new Date(
     "2026-09-30T10:00:00Z"
@@ -1467,8 +1401,10 @@ const endTime =
 
 function updateCountdown() {
 
+
   const now =
     Date.now();
+
 
   let distance =
     Math.max(
@@ -1607,6 +1543,7 @@ for (
   i++
 ) {
 
+
   const snow =
     document.createElement(
       "span"
@@ -1657,6 +1594,7 @@ for (
 }
 
 </script>
+
 
 </body>
 </html>
