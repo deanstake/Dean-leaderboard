@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
 
 <meta charset="UTF-8">
@@ -201,6 +202,7 @@ h1 {
 ========================= */
 
 .board {
+  width: 100%;
   overflow: hidden;
 
   border-radius: 25px;
@@ -214,17 +216,25 @@ h1 {
     0 0 80px rgba(100,60,255,.06);
 }
 
+/*
+   IMPORTANT:
+   Flexible columns prevent WAGERED and PRIZE
+   from overlapping on small phones.
+*/
+
 .table-head,
 .row {
   display: grid;
 
   grid-template-columns:
-    135px
-    1fr
-    190px
-    200px;
+    90px
+    minmax(0, 1fr)
+    minmax(150px, .9fr)
+    minmax(150px, .8fr);
 
   align-items: center;
+
+  column-gap: 15px;
 }
 
 .table-head {
@@ -278,6 +288,8 @@ h1 {
 }
 
 .player {
+  min-width: 0;
+
   display: flex;
   align-items: center;
 
@@ -294,6 +306,8 @@ h1 {
 .amount {
   font-size: 27px;
   font-weight: 800;
+
+  white-space: nowrap;
 }
 
 .prize {
@@ -366,19 +380,28 @@ h1 {
     0 0 38px rgba(190,105,45,.55);
 }
 
-/* ULTRA GLOWING GOLD JOIN BUTTON */
+/* =========================
+   JOIN BUTTON
+========================= */
 
 .join-button {
   display: block;
+
   width: calc(100% - 60px);
   max-width: 1000px;
+
   margin: 30px auto 35px;
+
   padding: 21px 25px;
+
   position: relative;
   overflow: hidden;
+
   text-align: center;
   text-decoration: none;
+
   color: #090704;
+
   font-size: 22px;
   font-weight: 950;
   letter-spacing: .3px;
@@ -404,15 +427,20 @@ h1 {
     inset 0 -6px 0 rgba(105,55,5,.25);
 
   animation: goldPulse 2s ease-in-out infinite;
+
   transition: transform .2s ease;
+
   isolation: isolate;
 }
 
 .join-button::before {
   content: "";
+
   position: absolute;
+
   top: 0;
   left: -80%;
+
   width: 45%;
   height: 100%;
 
@@ -424,7 +452,9 @@ h1 {
   );
 
   transform: skewX(-20deg);
+
   animation: goldShine 3s ease-in-out infinite;
+
   z-index: -1;
 }
 
@@ -440,6 +470,7 @@ h1 {
 }
 
 @keyframes goldPulse {
+
   0%,100% {
     box-shadow:
       0 0 8px #fff0a8,
@@ -461,9 +492,11 @@ h1 {
       inset 0 2px 2px rgba(255,255,255,1),
       inset 0 -6px 0 rgba(105,55,5,.25);
   }
+
 }
 
 @keyframes goldShine {
+
   0% {
     left: -80%;
   }
@@ -471,15 +504,7 @@ h1 {
   45%,100% {
     left: 140%;
   }
-}
 
-@media(max-width:700px) {
-  .join-button {
-    width: calc(100% - 30px);
-    padding: 19px 15px;
-    font-size: 18px;
-    border-radius: 17px;
-  }
 }
 
 /* =========================
@@ -696,6 +721,7 @@ h1 {
       translate3d(-10px,110vh,0)
       rotate(360deg);
   }
+
 }
 
 /* =========================
@@ -706,16 +732,12 @@ h1 {
 
   .header {
     height: 76px;
-
-    padding:
-      0 5%;
+    padding: 0 5%;
   }
 
   .container {
     width: 94%;
-
-    padding:
-      40px 0 60px;
+    padding: 40px 0 60px;
   }
 
   .brand {
@@ -734,7 +756,6 @@ h1 {
 
   h1 {
     font-size: 42px;
-
     line-height: 1.05;
   }
 
@@ -742,20 +763,16 @@ h1 {
     font-size: 17px;
   }
 
-  /* COUNTDOWN MOBILE */
+  /* COUNTDOWN */
 
   .countdown {
     gap: 8px;
-
     margin-top: 28px;
   }
 
   .time-box {
     width: 78px;
-
-    padding:
-      13px 4px;
-
+    padding: 13px 4px;
     border-radius: 18px;
   }
 
@@ -765,7 +782,6 @@ h1 {
 
   .time-label {
     font-size: 8px;
-
     letter-spacing: 2px;
   }
 
@@ -773,22 +789,35 @@ h1 {
 
   .table-head,
   .row {
-    grid-template-columns:
-      55px
-      1fr
-      110px
-      95px;
 
-    padding-left: 15px;
-    padding-right: 15px;
+    /*
+      These columns now FIT the phone.
+
+      Rank       = 42px
+      Player     = flexible
+      Wagered    = 92px
+      Prize      = 88px
+    */
+
+    grid-template-columns:
+      42px
+      minmax(0, 1fr)
+      92px
+      88px;
+
+    column-gap: 5px;
+
+    padding-left: 12px;
+    padding-right: 12px;
   }
 
   .table-head {
+
     min-height: 70px;
 
     font-size: 8px;
 
-    letter-spacing: 1.5px;
+    letter-spacing: 1px;
   }
 
   .row {
@@ -800,35 +829,52 @@ h1 {
   }
 
   .player {
-    gap: 9px;
+    min-width: 0;
+    gap: 5px;
   }
 
   .name {
     font-size: 18px;
+
+    white-space: nowrap;
   }
 
   .amount {
-    font-size: 17px;
+    font-size: 15px;
+
+    white-space: nowrap;
   }
 
   .prize {
-    font-size: 17px;
+    font-size: 16px;
+
+    white-space: nowrap;
   }
 
-  /* SOCIAL MOBILE */
+  /* JOIN BUTTON */
+
+  .join-button {
+    width: calc(100% - 30px);
+
+    padding: 19px 15px;
+
+    font-size: 18px;
+
+    border-radius: 17px;
+  }
+
+  /* SOCIAL */
 
   .social-section {
     width: 94%;
   }
 
   .social-card {
-    padding:
-      18px 20px;
-
+    padding: 18px 20px;
     font-size: 19px;
   }
 
-  /* FOOTER MOBILE */
+  /* FOOTER */
 
   .footer-content {
     gap: 18px;
@@ -845,9 +891,15 @@ h1 {
 
 }
 
-/* VERY SMALL PHONES */
+/* =========================
+   SMALL PHONES
+========================= */
 
 @media (max-width: 390px) {
+
+  .container {
+    width: 96%;
+  }
 
   .time-box {
     width: 70px;
@@ -867,11 +919,22 @@ h1 {
 
   .table-head,
   .row {
+
     grid-template-columns:
-      45px
-      1fr
-      65px
+      38px
+      minmax(0, 1fr)
+      72px
       75px;
+
+    column-gap: 3px;
+
+    padding-left: 9px;
+    padding-right: 9px;
+  }
+
+  .table-head {
+    font-size: 7px;
+    letter-spacing: .8px;
   }
 
   .name {
@@ -879,13 +942,60 @@ h1 {
   }
 
   .amount {
-    font-size: 15px;
+    font-size: 13px;
   }
 
   .prize {
-    font-size: 15px;
+    font-size: 14px;
   }
 
+}
+
+/* =========================
+   EXTRA SMALL PHONES
+========================= */
+
+@media (max-width: 350px) {
+
+  .table-head,
+  .row {
+
+    grid-template-columns:
+      34px
+      minmax(0, 1fr)
+      65px
+      68px;
+
+    column-gap: 2px;
+
+    padding-left: 7px;
+    padding-right: 7px;
+  }
+
+  .rank {
+    font-size: 22px;
+  }
+
+  .name {
+    font-size: 14px;
+  }
+
+  .amount {
+    font-size: 12px;
+  }
+
+  .prize {
+    font-size: 13px;
+  }
+
+}
+
+/* Prevent horizontal scrolling */
+
+html,
+body {
+  max-width: 100%;
+  overflow-x: hidden;
 }
 
 </style>
@@ -939,8 +1049,6 @@ h1 {
 
     <div class="countdown">
 
-      <!-- DAYS -->
-
       <div class="time-box">
 
         <div
@@ -955,8 +1063,6 @@ h1 {
         </div>
 
       </div>
-
-      <!-- HOURS -->
 
       <div class="time-box">
 
@@ -973,8 +1079,6 @@ h1 {
 
       </div>
 
-      <!-- MINUTES -->
-
       <div class="time-box">
 
         <div
@@ -989,8 +1093,6 @@ h1 {
         </div>
 
       </div>
-
-      <!-- SECONDS -->
 
       <div class="time-box">
 
@@ -1016,8 +1118,6 @@ h1 {
   ========================= -->
 
   <section class="board">
-
-    <!-- TABLE HEADER -->
 
     <div class="table-head">
 
@@ -1050,13 +1150,13 @@ h1 {
       <div class="player">
 
         <div class="name">
-          ********js
+          ****OCE
         </div>
 
       </div>
 
       <div class="amount">
-        $2,477,281.98
+        $160.148.17
       </div>
 
       <div class="prize">
@@ -1076,13 +1176,13 @@ h1 {
       <div class="player">
 
         <div class="name">
-          ****OCE
+          ******ks9
         </div>
 
       </div>
 
       <div class="amount">
-        $1,990,532.00
+        $7
       </div>
 
       <div class="prize">
@@ -1102,13 +1202,13 @@ h1 {
       <div class="player">
 
         <div class="name">
-          ******s71
+          ****p20
         </div>
 
       </div>
 
       <div class="amount">
-        $1,122,527.72
+        $6
       </div>
 
       <div class="prize">
@@ -1128,13 +1228,13 @@ h1 {
       <div class="player">
 
         <div class="name">
-           *ACX
+          ******sic
         </div>
 
       </div>
 
       <div class="amount">
-        $956,222.80
+        $5
       </div>
 
       <div class="prize">
@@ -1154,13 +1254,13 @@ h1 {
       <div class="player">
 
         <div class="name">
-          *******ks1
+          *******eyK
         </div>
 
       </div>
 
       <div class="amount">
-        $841,545.35
+        $4
       </div>
 
       <div class="prize">
@@ -1171,15 +1271,17 @@ h1 {
 
   </section>
 
-<a
-  class="join-button"
-  href="https://stake.mba/?c=dean"
-  target="_blank"
-  rel="noopener noreferrer"
->
-  To Join The Leaderboard,
-        Signup Here →
-</a>
+  <!-- JOIN -->
+
+  <a
+    class="join-button"
+    href="https://stake.mba/?c=dean"
+    target="_blank"
+    rel="noopener noreferrer"
+  >
+    To Join The Leaderboard,
+    Signup Here →
+  </a>
 
   <!-- =========================
        SOCIAL
@@ -1190,8 +1292,6 @@ h1 {
     <div class="queries-title">
       Queries?
     </div>
-
-    <!-- TELEGRAM -->
 
     <a
       class="social-card"
@@ -1219,8 +1319,6 @@ h1 {
       </span>
 
     </a>
-
-    <!-- X -->
 
     <a
       class="social-card"
@@ -1293,40 +1391,14 @@ h1 {
 
 <script>
 
-/*
-=================================================
-GENEVA COUNTDOWN
-=================================================
-
-Competition:
-
-START:
-1 September 2026
-12:00 AM Geneva time
-
-END:
-30 September 2026
-12:00 PM Geneva time
-
-Geneva is on CEST (UTC+2)
-on 30 September 2026.
-
-Therefore:
-
-12:00 PM Geneva
-=
-10:00 AM UTC
-
-The countdown below uses UTC so it works
-correctly regardless of the visitor's country.
-=================================================
-*/
+/* =========================
+   COUNTDOWN
+========================= */
 
 const endTime =
   new Date(
     "2026-09-30T10:00:00Z"
   ).getTime();
-
 
 function updateCountdown() {
 
@@ -1339,10 +1411,6 @@ function updateCountdown() {
       endTime - now
     );
 
-  /*
-  DAYS
-  */
-
   const days =
     Math.floor(
       distance /
@@ -1352,10 +1420,6 @@ function updateCountdown() {
   distance =
     distance %
     (1000 * 60 * 60 * 24);
-
-  /*
-  HOURS
-  */
 
   const hours =
     Math.floor(
@@ -1367,10 +1431,6 @@ function updateCountdown() {
     distance %
     (1000 * 60 * 60);
 
-  /*
-  MINUTES
-  */
-
   const minutes =
     Math.floor(
       distance /
@@ -1381,19 +1441,11 @@ function updateCountdown() {
     distance %
     (1000 * 60);
 
-  /*
-  SECONDS
-  */
-
   const seconds =
     Math.floor(
       distance /
       1000
     );
-
-  /*
-  PUT VALUES ON PAGE
-  */
 
   document.getElementById(
     "days"
@@ -1421,15 +1473,7 @@ function updateCountdown() {
 
 }
 
-/*
-RUN IMMEDIATELY
-*/
-
 updateCountdown();
-
-/*
-UPDATE EVERY SECOND
-*/
 
 setInterval(
   updateCountdown,
@@ -1465,7 +1509,7 @@ for (
   snow.textContent =
     Math.random() > 0.25
       ? "•"
-      : "•";
+      : "❄";
 
   snow.style.left =
     Math.random() * 100 +
